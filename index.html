@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kauan Gabriel · Dev Android</title>
+<meta name="description" content="Kauan Gabriel, desenvolvedor Android com Kotlin e Jetpack Compose em Igarapé (MG). Disponível para vagas e projetos freelance.">
+<meta property="og:title" content="Kauan Gabriel · Desenvolvedor Android">
+<meta property="og:description" content="Apps Android com Kotlin, Jetpack Compose e Firebase. Disponível para vagas e projetos freelance.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kauanngabriel.github.io/">
+<meta name="theme-color" content="#7F52FF">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/*
+VOICE: confiante e direto, um júnior que já entrega app pronto.
+IDEA: a página se comporta como a vitrine de uma loja de apps — cada projeto é uma "ficha" com tela de celular.
+PICTURE: um celular no topo rodando um app desenhado em HTML; cada projeto tem sua própria mini tela.
+COLOUR and TYPE: violeta Kotlin #7F52FF dominante em faixa chapada, tinta escura, acento coral #E44857; Sora + Inter + JetBrains Mono no código.
+LAYOUT: topo em faixa violeta com texto e celular; sobre com card de código; grade de projetos; stack; contato.
+*/
+:root{color-scheme:light dark;
+--bg:light-dark(#ffffff,#121019);--ink:light-dark(#17141f,#efecf7);--mute:light-dark(#5b566a,#a8a2ba);
+--line:light-dark(#e6e2ef,#2b2638);--card:light-dark(#f7f5fc,#1b1825);
+--k:#7F52FF;--kd:light-dark(#5a32d6,#9b7bff);--hero:light-dark(#7F52FF,#3a2580);--coral:#E44857;--onk:#ffffff}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:Sora,Inter,sans-serif;line-height:1.08;text-wrap:balance;margin:0}
+h2{font-size:clamp(28px,4vw,40px)}h3{font-size:20px}
+a{color:inherit}
+.band{padding:clamp(40px,6vw,88px) max(5vw,16px)}
+.wrap{max-width:1180px;margin:0 auto}
+html{scroll-padding-top:72px;scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:var(--hero);color:var(--onk)}
+nav .wrap{display:flex;align-items:center;gap:20px;padding:14px max(5vw,16px);flex-wrap:wrap}
+.logo{font:600 17px Sora,sans-serif;text-decoration:none;margin-right:auto;display:flex;gap:10px;align-items:center}
+.logo i{width:28px;height:28px;border-radius:8px;background:var(--onk);display:grid;place-items:center;font-style:normal;color:var(--k);font-size:14px}
+nav a.l{text-decoration:none;opacity:.88;font-weight:500;font-size:15px;padding:8px 2px}
+nav a.l:hover,nav a.l:focus-visible{opacity:1;text-decoration:underline;text-underline-offset:6px}
+
+/* hero */
+.hero{background:var(--hero);color:var(--onk);padding-top:clamp(28px,4vw,56px);padding-bottom:0;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(24px,5vw,72px);align-items:end}
+.hero .txt{padding-bottom:clamp(40px,6vw,88px)}
+.tag{display:inline-flex;gap:8px;align-items:center;background:rgba(255,255,255,.14);padding:6px 14px;border-radius:99px;font-size:14px;font-weight:500}
+.tag b{width:8px;height:8px;border-radius:50%;background:#7dffb0}
+.hero h1{font-size:clamp(40px,6.2vw,72px);margin:20px 0 18px;letter-spacing:-.02em}
+.hero p.lead{font-size:clamp(17px,1.6vw,19px);max-width:34em;opacity:.92;margin:0 0 28px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 22px;border-radius:12px;font-weight:600;text-decoration:none;font-size:15px;border:2px solid transparent}
+.btn.p{background:var(--onk);color:#3a1fa8}.btn.s{border-color:rgba(255,255,255,.55);color:var(--onk)}
+.btn:hover{transform:translateY(-1px)}.btn:focus-visible{outline:3px solid #ffd2d7;outline-offset:3px}
+.btn svg{width:18px;height:18px}
+
+/* phone */
+.phone{width:min(300px,100%);margin:0 auto;aspect-ratio:9/17.5;background:#0d0b12;border-radius:40px 40px 0 0;padding:12px 12px 0;box-shadow:0 30px 60px rgba(20,8,60,.45),inset 0 0 0 2px #2c2838;position:relative}
+.phone .scr{height:100%;border-radius:30px 30px 0 0;overflow:hidden;background:#f6f4fb;color:#17141f;display:flex;flex-direction:column;font-size:12px}
+.phone .notch{position:absolute;top:22px;left:50%;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:#0d0b12;z-index:2}
+.sb{display:flex;justify-content:space-between;padding:10px 18px 4px;font-size:11px;font-weight:600}
+.ab{padding:10px 16px 12px;font:600 18px Sora,sans-serif}
+.ab small{display:block;font:400 12px Inter,sans-serif;color:#6a6578}
+.chipr{display:flex;gap:6px;padding:0 16px 10px}
+.chipr span{padding:5px 10px;border-radius:8px;background:#e9e3ff;color:#4a2bc2;font-weight:600;font-size:11px}
+.chipr span.o{background:#fff;color:#5b566a;box-shadow:inset 0 0 0 1px #ddd8e8}
+.it{margin:0 12px 8px;background:#fff;border-radius:14px;padding:11px 12px;display:flex;gap:10px;align-items:center;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.it .ic{width:34px;height:34px;border-radius:10px;flex:none;display:grid;place-items:center;color:#fff;font-weight:700;font-size:13px}
+.it .t{flex:1}.it .t b{display:block;font-size:12.5px}.it .t span{color:#6a6578;font-size:11px}
+.st{font-size:10.5px;font-weight:700;padding:3px 8px;border-radius:6px;white-space:nowrap}
+.ok{background:#dff6e8;color:#17703c}.wa{background:#fff0d6;color:#8a5500}.er{background:#ffe1e4;color:#a11a2b}
+.fab{margin:auto 16px 18px auto;width:52px;height:52px;border-radius:16px;background:#7F52FF;color:#fff;display:grid;place-items:center;font-size:26px;box-shadow:0 6px 14px rgba(127,82,255,.4)}
+@keyframes rise{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+.hero .phone{animation:rise .8s cubic-bezier(.2,.8,.2,1) both}
+
+/* sobre */
+.about .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:center}
+.about p{color:var(--mute);font-size:17px;max-width:36em}
+.about h2{margin-bottom:18px}
+.code{background:#17141f;color:#e8e4f5;border-radius:18px;padding:22px 24px;font:14px/1.75 'JetBrains Mono',monospace;overflow-x:auto;box-shadow:0 20px 40px rgba(23,20,31,.18)}
+.code .dots{display:flex;gap:7px;margin-bottom:14px}.code .dots i{width:11px;height:11px;border-radius:50%;background:#3a3548}
+.code .dots i:first-child{background:var(--coral)}
+.kw{color:#c3a6ff}.str{color:#9de0a8}.ty{color:#ffb38a}.cm{color:#7d7790}
+
+/* projetos */
+.projects{background:var(--card)}
+.head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:36px}
+.head p{color:var(--mute);margin:8px 0 0;max-width:40em}
+.note{font-size:13px;color:var(--mute);border:1px dashed var(--line);padding:6px 12px;border-radius:8px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.proj{background:var(--bg);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+.shot{background:linear-gradient(180deg,var(--pc) 0 100%);padding:26px 0 0;display:flex;justify-content:center;height:280px;overflow:hidden}
+.mini{width:190px;height:330px;background:#0d0b12;border-radius:28px 28px 0 0;padding:8px 8px 0;box-shadow:0 18px 30px rgba(0,0,0,.25)}
+.mini .scr{height:100%;border-radius:22px 22px 0 0;background:#f6f4fb;color:#17141f;overflow:hidden;font-size:10px;padding:14px 10px}
+.mini h4{font:600 13px Sora,sans-serif;margin:0 0 10px}
+.bar{height:8px;border-radius:4px;background:#e4dff0;margin:6px 0}
+.bar i{display:block;height:100%;border-radius:4px}
+.row{display:flex;justify-content:space-between;background:#fff;border-radius:9px;padding:7px 8px;margin-bottom:6px}
+.big{font:700 30px Sora,sans-serif;margin:4px 0}
+.body{padding:22px 22px 24px;display:flex;flex-direction:column;gap:12px;flex:1}
+.body p{margin:0;color:var(--mute);font-size:15px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{font-size:12.5px;font-weight:500;padding:4px 10px;border-radius:7px;background:var(--card);border:1px solid var(--line)}
+.links{display:flex;gap:16px;margin-top:auto;padding-top:6px}
+.links a{font-weight:600;font-size:14px;color:var(--kd);text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
+.links a:hover,.links a:focus-visible{text-decoration:underline}
+
+.mini.brow{width:250px;height:300px;border-radius:12px 12px 0 0;padding:0;background:#2b2638;margin-top:14px}
+.mini.brow .dots{display:flex;gap:5px;padding:9px 10px}.mini.brow .dots i{width:8px;height:8px;border-radius:50%;background:#5a546a}
+.mini.brow .scr{border-radius:0;height:calc(100% - 26px)}
+.priv{font-size:14px;color:var(--mute);min-height:44px;display:inline-flex;align-items:center}
+a.note{text-decoration:none;color:var(--kd);font-weight:600;border-style:solid}
+.svc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.sv{border:1px solid var(--line);border-radius:20px;padding:24px;background:var(--bg)}
+.sv .ico{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;margin-bottom:16px;color:#fff}
+.sv .ico svg{width:24px;height:24px}
+.sv p{color:var(--mute);margin:10px 0 0;font-size:15px}
+.steps{list-style:none;padding:0;margin:32px 0 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;counter-reset:s}
+.steps li{counter-increment:s;padding:16px 18px;border-radius:14px;background:var(--card);font-size:15px}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--k);color:#fff;font:600 14px Sora,sans-serif;margin-bottom:10px}
+.steps b{display:block;font-family:Sora,sans-serif}.steps span{color:var(--mute);font-size:14px}
+@media(max-width:900px){.svc{grid-template-columns:minmax(0,1fr)}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:480px){.steps{grid-template-columns:minmax(0,1fr)}}
+.edu{padding-top:0}.ed{margin-top:24px;display:grid;gap:14px}
+.ei{display:flex;gap:18px;align-items:flex-start;border:1px solid var(--line);border-radius:20px;padding:22px 24px}
+.eic{width:48px;height:48px;border-radius:14px;background:var(--k);color:#fff;display:grid;place-items:center;flex:none}.eic svg{width:26px;height:26px}
+.ei p{margin:6px 0 10px;color:var(--mute)}.ei .chips{margin-top:10px}
+.ed{grid-template-columns:repeat(2,minmax(0,1fr))}@media(max-width:760px){.ed{grid-template-columns:minmax(0,1fr)}}
+.pill{display:inline-block;font-size:13px;font-weight:600;padding:4px 12px;border-radius:99px;background:light-dark(#efe9ff,#2a2045);color:var(--kd)}
+/* stack */
+.stack-g{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin-top:32px}
+.sg{border-top:3px solid var(--k);padding-top:16px}
+.sg h3{font-size:17px;margin-bottom:12px}
+.sg ul{list-style:none;padding:0;margin:0;display:grid;gap:8px;color:var(--mute)}
+.sg li::before{content:"";display:inline-block;width:6px;height:6px;border-radius:2px;background:var(--coral);margin-right:10px;vertical-align:middle}
+
+/* contato */
+.contact{background:var(--hero);color:var(--onk)}
+.contact .wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:40px;align-items:center}
+.contact p{opacity:.9;font-size:17px;margin:14px 0 0;max-width:32em}
+.cl{display:grid;gap:12px}
+.cl a,.cl div{display:flex;justify-content:space-between;align-items:center;gap:12px;background:rgba(255,255,255,.1);padding:14px 18px;border-radius:14px;text-decoration:none;min-height:56px;flex-wrap:wrap}
+.cl a:hover,.cl a:focus-visible{background:rgba(255,255,255,.18);outline:none}
+.cl span{opacity:.75;font-size:14px}.cl b{font-weight:600;overflow-wrap:anywhere}
+footer{padding:22px max(5vw,16px);text-align:center;font-size:13px;color:var(--mute)}
+
+@media(max-width:900px){.grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.stack-g{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.hero .wrap,.about .wrap,.contact .wrap{grid-template-columns:minmax(0,1fr)}
+ .hero .txt{padding-bottom:8px}.phone{width:min(260px,80%)}}
+@media(max-width:600px){.grid{grid-template-columns:minmax(0,1fr)}nav .nl{display:none}.code{font-size:12.5px;padding:18px}}
+</style>
+</head>
+<body>
+
+<nav aria-label="Principal"><div class="wrap">
+  <a class="logo" href="#inicio"><i>K</i>Kauan Gabriel</a>
+  <span class="nl" style="display:flex;gap:20px;flex-wrap:wrap">
+    <a class="l" href="#sobre">Sobre</a><a class="l" href="#formacao">Formação</a><a class="l" href="#projetos">Projetos</a><a class="l" href="#servicos">Freelance</a><a class="l" href="#stack">Stack</a><a class="l" href="#contato">Contato</a>
+  </span>
+</div></nav>
+
+<header class="band hero" id="inicio"><div class="wrap">
+  <div class="txt">
+    <span class="tag"><b></b>Disponível para vagas e projetos freelance</span>
+    <h1>Desenvolvedor Android e freelancer</h1>
+    <p class="lead">Olá, eu sou o Kauan, de Igarapé (MG). Crio apps Android nativos com Kotlin, Jetpack Compose, Firebase e Clean Architecture, buscando experiências mobile simples e fluidas. Também desenvolvo projetos sob demanda para empresas e profissionais.</p>
+    <div class="btns">
+      <a class="btn p" href="#projetos">Ver projetos</a>
+      <a class="btn s" href="#servicos">Contratar freelance</a>
+      <a class="btn s" href="https://github.com/KauannGabriel"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.4-5.26 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>GitHub</a>
+      <a class="btn s" href="https://www.linkedin.com/in/kauann-gabriel">LinkedIn</a>
+    </div>
+  </div>
+  <div class="phone" role="img" aria-label="Celular mostrando a agenda de horários do app KauanBarber">
+    <div class="notch"></div>
+    <div class="scr">
+      <div class="sb"><span>9:41</span><span>5G ▮▮▮</span></div>
+      <div class="ab">Agenda de hoje<small>Qua, 25 de novembro · 6 horários</small></div>
+      <div class="chipr"><span>Hoje</span><span class="o">Amanhã</span><span class="o">Semana</span></div>
+      <div id="eq"></div>
+      <div class="fab" aria-hidden="true">+</div>
+    </div>
+  </div>
+</div></header>
+
+<section class="band about" id="sobre"><div class="wrap">
+  <div>
+    <h2>Sobre mim</h2>
+    <p>Sou desenvolvedor de Igarapé, Minas Gerais, e meu foco é o desenvolvimento Android. Gosto de transformar problemas do dia a dia em apps bem estruturados e fáceis de manter.</p>
+    <p>Trabalho com Kotlin, Jetpack Compose, Firebase e Clean Architecture, e também tenho experiência com Python, HTML e bancos de dados em projetos web e acadêmicos.</p>
+  </div>
+  <pre class="code" aria-label="Apresentação em código Kotlin"><div class="dots"><i></i><i></i><i></i></div><span class="kw">data class</span> <span class="ty">Dev</span>(
+  <span class="kw">val</span> nome: <span class="ty">String</span> = <span class="str">"Kauan Gabriel"</span>,
+  <span class="kw">val</span> foco: <span class="ty">String</span> = <span class="str">"Android nativo"</span>,
+  <span class="kw">val</span> cidade: <span class="ty">String</span> = <span class="str">"Igarapé, MG"</span>,
+  <span class="kw">val</span> stack: <span class="ty">List</span>&lt;<span class="ty">String</span>&gt; = listOf(
+    <span class="str">"Kotlin"</span>, <span class="str">"Compose"</span>,
+    <span class="str">"Firebase"</span>, <span class="str">"Clean Arch"</span>
+  ),
+  <span class="kw">val</span> buscando: <span class="ty">Boolean</span> = <span class="kw">true</span>
+)
+<span class="cm">// sempre aprendendo algo novo</span></pre>
+</div></section>
+
+<section class="band edu" id="formacao"><div class="wrap">
+  <h2>Formação</h2>
+  <div class="ed">
+    <div class="ei"><div class="eic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M6 11v5c3 2.5 9 2.5 12 0v-5" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
+      <div><h3>Análise e Desenvolvimento de Sistemas</h3><p>Centro Universitário UNA · Betim, MG</p><span class="pill">4º semestre · Conclusão prevista: jul/2027</span></div></div>
+    <div class="ei"><div class="eic" style="background:var(--coral)" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 21h8M12 17v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+      <div><h3>Norte Tech</h3><p>Escola Nova Era Tech · Curso livre</p><span class="pill" style="margin-bottom:10px">Em andamento</span><div class="chips"><span>Android</span><span>Web</span><span>Backend</span><span>Análise de dados</span><span>IA</span></div></div></div>
+  </div>
+</div></section>
+
+<section class="band projects" id="projetos"><div class="wrap">
+  <div class="head">
+    <div><h2>Projetos</h2><p>O que venho construindo, do mobile ao web.</p></div>
+    <a class="note" href="https://github.com/KauannGabriel?tab=repositories">Ver todos no GitHub →</a>
+  </div>
+  <div class="grid" id="grid"></div>
+</div></section>
+
+<section class="band services" id="servicos"><div class="wrap">
+  <div class="head"><div><h2>Freelance</h2><p>Atendo empresas, pequenos negócios e profissionais autônomos, da ideia até o app ou sistema funcionando.</p></div>
+  <a class="note" href="#contato">Pedir orçamento →</a></div>
+  <div class="svc" id="sv"></div>
+  <ol class="steps" id="st"></ol>
+</div></section>
+
+<section class="band" id="stack"><div class="wrap">
+  <h2>Stack e ferramentas</h2>
+  <div class="stack-g" id="sk"></div>
+</div></section>
+
+<section class="band contact" id="contato"><div class="wrap">
+  <div><h2>Vamos conversar?</h2><p>Estou aberto a vagas como dev mobile Android e a projetos freelance. Tem uma ideia de app ou sistema? Me conte o que você precisa e eu respondo com uma proposta.</p></div>
+  <div class="cl">
+    <div><span>E-mail</span><b>kauangabriel1401@gmail.com</b></div>
+    <a href="https://www.linkedin.com/in/kauann-gabriel"><span>LinkedIn</span><b>/in/kauann-gabriel</b></a>
+    <a href="https://github.com/KauannGabriel"><span>GitHub</span><b>@KauannGabriel</b></a>
+  </div>
+</div></section>
+
+<footer>© 2026 Kauan Gabriel · Feito com HTML e CSS</footer>
+
+<script>
+{
+const eq=[["09","#7F52FF","João Pedro","Corte + barba · 09:00","Confirmado","ok"],["10","#E44857","Lucas Martins","Corte degradê · 10:00","Confirmado","ok"],["11","#2a9d8f","Rafael Souza","Barba · 11:30","Pendente","wa"],["14","#f08a24","Mateus Lima","Corte · 14:00","Confirmado","ok"],["15","#4361ee","Gabriel Alves","Corte + sobrancelha · 15:30","Pendente","wa"]];
+document.getElementById('eq').innerHTML=eq.map(e=>`<div class="it"><div class="ic" style="background:${e[1]}">${e[0]}</div><div class="t"><b>${e[2]}</b><span>${e[3]}</span></div><span class="st ${e[5]}">${e[4]}</span></div>`).join('');
+
+const scr={
+ barber:`<h4>Agendar horário</h4><span style="color:#6a6578">Serviço</span><div class="row"><span>Corte + barba</span><b>R$ 50</b></div><span style="color:#6a6578">Horários livres</span><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin:6px 0 10px">${["09:00","10:30","13:00","14:30","16:00","17:30"].map((h,k)=>`<b style="text-align:center;padding:6px 0;border-radius:7px;${k==3?'background:#7F52FF;color:#fff':'background:#fff'}">${h}</b>`).join('')}</div><div style="background:#7F52FF;color:#fff;text-align:center;border-radius:9px;padding:8px;font-weight:600">Confirmar</div>`,
+ equip:`<h4>Equipamentos</h4><div class="row"><span>Balança</span><b style="color:#17703c">Em dia</b></div><div class="row"><span>Medidor pH</span><b style="color:#8a5500">3 dias</b></div><div class="row"><span>Micrômetro</span><b style="color:#a11a2b">Vencido</b></div><div class="row"><span>Pipeta</span><b style="color:#17703c">Em dia</b></div>`,
+ clientes:`<h4>Clientes</h4><div class="row" style="background:#ece8f6"><b>Nome</b><b>Status</b></div><div class="row"><span>Ana Ribeiro</span><b style="color:#17703c">Ativo</b></div><div class="row"><span>Carlos Dias</span><b style="color:#17703c">Ativo</b></div><div class="row"><span>Fernanda Reis</span><b style="color:#8a5500">Pendente</b></div><div class="row"><span>Pedro Costa</span><b style="color:#6a6578">Inativo</b></div>`
+};
+const pj=[
+ {t:"KauanBarber",c:"#7F52FF",s:"barber",k:"phone",d:"App Android para barbearia, com agendamento de horários. Em desenvolvimento.",tags:["Kotlin","Jetpack Compose","Firebase","Clean Architecture"],gh:"",ps:""},
+ {t:"EquipCheck · MegaCore",c:"#E44857",s:"equip",k:"web",d:"Sistema de inspeção e controle de calibração de equipamentos, com modelagem de banco de dados. Projeto acadêmico.",tags:["HTML","SQL","Banco de dados"],gh:"https://github.com/KauannGabriel/equipcheck-megacore",ps:""},
+ {t:"Gestão de Clientes",c:"#2a9d8f",s:"clientes",k:"web",d:"Sistema de gestão de clientes com a lógica de negócio em Python, interface em HTML e Peewee como ORM.",tags:["Python","HTML","Peewee ORM"],gh:"https://github.com/KauannGabriel/gestao-de-clientes",ps:""}
+];
+document.getElementById('grid').innerHTML=pj.map(p=>`<article class="proj"><div class="shot" style="--pc:${p.c}"><div class="${p.k=='web'?'mini brow':'mini'}" role="img" aria-label="Tela do projeto ${p.t}">${p.k=='web'?'<div class="dots"><i></i><i></i><i></i></div>':''}<div class="scr">${scr[p.s]}</div></div></div><div class="body"><h3>${p.t}</h3><p>${p.d}</p><div class="chips">${p.tags.map(x=>`<span>${x}</span>`).join('')}</div><div class="links">${p.gh?`<a href="${p.gh}">Código no GitHub →</a>`:'<span class="priv">Repositório privado</span>'}</div></div></article>`).join('');
+
+const sv=[["#7F52FF",'<rect x="6" y="2" width="12" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 18h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',"Apps Android","Aplicativos nativos em Kotlin e Jetpack Compose: agendamento, cadastro, catálogo, controle interno e mais."],
+["#E44857",'<rect x="2" y="4" width="20" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2 9h20" stroke="currentColor" stroke-width="2"/>',"Sistemas web","Sistemas simples para gestão de clientes, cadastros e controles, com banco de dados organizado."],
+["#2a9d8f",'<path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>',"Melhorias e manutenção","Correção de bugs, novas funcionalidades e integração com Firebase em projetos que você já tem."]];
+document.getElementById('sv').innerHTML=sv.map(x=>`<div class="sv"><div class="ico" style="background:${x[0]}"><svg viewBox="0 0 24 24" aria-hidden="true">${x[1]}</svg></div><h3>${x[2]}</h3><p>${x[3]}</p></div>`).join('');
+const st=[["Conversa","Entendo sua necessidade"],["Proposta","Escopo, prazo e valor"],["Desenvolvimento","Com entregas parciais"],["Entrega","Publicação e suporte"]];
+document.getElementById('st').innerHTML=st.map(x=>`<li><b>${x[0]}</b><span>${x[1]}</span></li>`).join('');
+
+const sk=[["Mobile",["Kotlin","Jetpack Compose","Android Studio"]],["Arquitetura e backend",["Clean Architecture","Firebase"]],["Web e dados",["Python","HTML","SQL","Peewee ORM"]],["Ferramentas",["Git e GitHub","VS Code"]]];
+document.getElementById('sk').innerHTML=sk.map(g=>`<div class="sg"><h3>${g[0]}</h3><ul>${g[1].map(i=>`<li>${i}</li>`).join('')}</ul></div>`).join('');
+}
+</script>
+</body>
+</html>
